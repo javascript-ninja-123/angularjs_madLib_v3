@@ -1,0 +1,111 @@
+<head>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body  ng-app="myApp">
+  <div ng-controller="oneController as main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 face-border">
+          <img class="img-responsive face" src="img/face.png">
+        </div>
+        <div class="col-md-8">
+         <img class="img-responsive logo" src="img/logo.png">
+         <figcaption>{{main.header}}</figcaption>
+        </div>
+        <div class="col-md-12 content">
+          <h2>{{main.title}}</h2>
+        </div>
+        <form ng-hide="!Active" name="myForm" ng-submit="submit()" novalidate>
+       
+            <div class="col-md-4">
+              <div class="form-group">
+              <p>
+               <input type="text" placeholder="gender" required name="gender" class="gender" ng-model="character.gender">
+               <span ng-show="myForm.gender.$dirty && myForm.gender.$invalid">Put either male or female</span>
+               </p>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <button class="btn btn-default " ng-click="showExample()" >Example</button>
+            </div>
+          <div class="clearfix"></div>
+          <div class="col-md-4">
+            <p>
+            <input  placeholder="name" name="name"  ng-model="character.name"  required ng-minlength="4">
+            <div ng-show="myForm.name.$dirty && myForm.name.$invalid" ng-messages="myForm.name.$error">
+                <span class="error" ng-message="required">It is required!</span>
+                <span class="error" ng-message="minlength">It is too short!!</span>
+            </div>
+            <!-- <span  ng-show="myForm.name.$dirty && myForm.name.$invalid">It is required.</span> -->
+            </p>
+          </div>
+          <div class="col-md-4">
+          <p>
+            <input type="text" placeholder="dirty task" name="task" required ng-model="character.dirtyTask">
+            <span  ng-show="myForm.task.$dirty && myForm.task.$invalid">It is required</span>
+          </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+            <input type="text" placeholder="obnoxious celebrity" name="obnoxious" required ng-model="character.obnoxiousCelebrity">
+            <span ng-show="myForm.obnoxious.$dirty && myForm.obnoxious.$invalid">It is required</span>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+            <input type="text" placeholder="job title"  name="job" required ng-model="character.jobTitle">
+            <span ng-show="myForm.job.$dirty && myForm.job.$invalid">It is required</span>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              <input type="text" placeholder="celebrity" name="celebrity" required ng-model="character.celebrity">
+              <span ng-show="myForm.celebrity.$dirty && myForm.celebrity.$invalid">It is required</span>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+            <input type="number" placeholder="huge number" name="number" required ng-model="character.hugeNumber">
+            <span ng-show="myForm.number.$dirty && myForm.number.$invalid">It is required</span>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+            <input type="text" placeholder="tedious task" name="tedious" required ng-model="character.tediousTask">
+            <span ng-show="myForm.tedious.$dirty && myForm.tedious.$invald">It is required</span>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+            <input type="text" placeholder="useless skill" name="useless" required ng-model="character.uselessSkill">
+            <span ng-show="myForm.useless.$dirty && myForm.useless.$invalid">It is required</span>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+            <input type="text" placeholder="adjective" name="adj" required ng-model="character.adjective">
+            <span ng-show="myForm.adj.$dirty && myForm.adj.$invalid">It is required</span>
+            </p>
+          </div>
+          <div class="col-md-12">
+            <input class="btn btn-default pull-right" type="submit" name="submit"  ng-click="switchProblem()" vlaue="Generate my Madlib!"  >
+          </div>
+        </form>
+       
+        
+
+        <div class="col-md-12" ng-hide="Active">
+          <h3><strong>{{character.name}}</strong> was a <strong>{{character.jobTitle}}</strong> who loved technology. Although <span ng-bind="pronoun">she</span> loved parts of <span ng-bind="pronoun2">her</span> job, <span ng-bind="pronoun">she</span> absolutely hated  <strong>{{character.tediousTask}}</strong> and <strong>{{character.dirtyTask}}</strong>. So, <strong>{{character.name}}</strong> met with <span ng-bind="pronoun2">her</span> life mentor <strong>{{character.celebrity}}</strong> who told <span ng-bind="pronoun2">her</span> to learn how to <strong>{{character.uselessSkill}}</strong> with Thinkful. Thinkful didn't offer a course on <strong>{{character.uselessSkill}}</strong> so <span ng-bind="pronoun">she</span> studied programming instead. </h3>
+          <h3>What a great decision! With <span ng-bind="pronoun2">her</span> new skills, <strong>{{character.name}}</strong> built a(n) <strong>{{character.adjective}}</strong> robot named <strong>{{character.obnoxiuousCelbertity}}</strong> that not only loved <strong>{{character.dirtyTask}}</strong> but did it <strong>{{character.hugeNumber}}</strong> faster. </h3>
+          <button class="btn btn-default pull-right" ng-click="doitAgain()" >Reset</button>
+        </div>
+     </div>
+    </div>
+  </div>
+ 
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+   <script src="https://code.angularjs.org/latest/angular-messages.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="Ctrl.js"></script>
+</body>
