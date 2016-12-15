@@ -1,13 +1,34 @@
 .container{
 	margin-top:50px;
 	border:2px solid black;
+	
 
 }
 .face{
 	margin-top:26px !important;
 	width:30%;
 	margin:0 auto;
+	position:relative;
+	 -webkit-animation: mymove 2s infinite alternate; /* Safari 4.0 - 8.0 */
+    animation: mymove 2s infinite alternate;
+
+  animation-delay: 0;
 }
+@-webkit-keyframes mymove {
+    0%   {left: 0px;}
+    25%  {left: 10px;}
+    75%  {left: 20px}
+    100% {left: 30px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    0%   {left: 0px;}
+    25%  {left: 10px;}
+    75%  {left: 20px}
+    100% {left: 30px;}
+}
+
 .face-border{
 	border-left:1px solid black;
 		border-right:1px solid black;
@@ -34,7 +55,14 @@ font-weight:800;
 
 h2{
 	margin-bottom:40px;
+
 }
+h3{
+	 -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+}
+	
 input{
 
 	margin-bottom:40px !important;
@@ -42,6 +70,7 @@ input{
 	width:170px;
 	display:block;
 	margin:0 auto;
+	transition: 0.5s linear;
 }
 button{
 	
@@ -53,4 +82,49 @@ strong{
 	text-decoration:underline;
 	padding-bottom:10px;
 	color:pink;
+
 }
+.question{
+	width:170px;
+}
+.makeBig{
+
+	 box-shadow: 0 0 10px 3px pink;
+  color: black;
+  width:240px;
+  height:40px;
+}
+.read{
+ -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+ opacity: 0.2;
+
+}
+/*.makeBig{
+	transition:linear 0.5s all;
+
+}
+.makeBig.ng-enter{
+	display:block !important;
+ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.makeBig.ng-enter.ng-enter.active{
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+
+}
+}
+
+.makeBig.ng-leave{
+	display:block !important;
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+
+}
+.makeBig.ng-leave.ng-leave-active{
+ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}*/
+
+
+

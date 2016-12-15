@@ -4,25 +4,30 @@ app.controller('oneController', function($scope,$timeout) {
 	main.header = "Automate This!";
 	//form submit
 	$scope.submit = submit;
-
-	$scope.switchProblem= switchProblem;
 	//data example
   $scope.showExample = showExample;
+  //trigger story
+  $scope.switchProblem = switchProblem;
   //reset button
  $scope.doitAgain = doitAgain;
   //single-side application
  $scope.Active = true;
+ //make input bigger
+$scope.extraClass=false;
+//readable
+$scope.readIt=false;
+
 
  function submit(){
 if($scope.myForm.$invalid){
 $scope.Active = true;
-
-
 }
 else if($scope.myForm.$valid){
 
 	console.log("it is submitted");
+
 }
+
  }
 
 
@@ -46,9 +51,9 @@ adjective : "hefty"
 
 	},4000);
  }
- 
+
  function switchProblem(){
- 	if($scope.gender === "male"){
+ 	if($scope.character.gender === "male"){
  		$scope.pronoun = "he";
  		$scope.pronoun2 = "his";
  	}
@@ -56,15 +61,11 @@ adjective : "hefty"
  	$scope.pronoun = "she";
  		$scope.pronoun2 = "her";	
  	}
-
-
  	$scope.Active = false;
-
-
-
  }
+
+ 
 function doitAgain(){
-	input = angular.element(document.getElementsByTagName("INPUT"));
 	console.log("Reset!");
 	$scope.character= {};
 	$scope.Active = true;
